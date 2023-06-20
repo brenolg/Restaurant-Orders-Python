@@ -8,8 +8,8 @@ def test_ingredient():
     assert ingredient.name == "Tomato"
 
     # Teste de população correta do atributo restrictions
-    ingredient = Ingredient("Milk")
-    assert ingredient.restrictions == {"vegetarian"}
+    ingredient = Ingredient("farinha")
+    assert ingredient.restrictions == {Restriction.GLUTEN}
 
     # Teste do método mágico __repr__
     ingredient = Ingredient("Sugar")
@@ -26,15 +26,10 @@ def test_ingredient():
     ingredient2 = Ingredient("Flour")
     assert hash(ingredient1) == hash(ingredient2)
 
-    # Teste do __hash__ para ingredientes iguais com hashes diferentes
-    ingredient1 = Ingredient("Rice")
-    ingredient2 = Ingredient("Rice")
+    # Teste do __hash__ para ingredientes diferentes
+    ingredient1 = Ingredient("Flour")
+    ingredient2 = Ingredient("Egg")
     assert hash(ingredient1) != hash(ingredient2)
-
-    # Teste do __hash__ para ingredientes diferentes com hashes iguais
-    ingredient1 = Ingredient("Carrot")
-    ingredient2 = Ingredient("Potato")
-    assert hash(ingredient1) == hash(ingredient2)
 
     # Teste de desigualdade entre ingredientes iguais
     ingredient1 = Ingredient("Egg")
