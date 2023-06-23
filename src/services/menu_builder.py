@@ -28,6 +28,7 @@ class MenuBuilder:
     def get_main_menu(self, restriction=None) -> List[Dict]:
 
         menu = []
+
         for dish in self.menu_data.dishes:
             if not dish.has_restriction(restriction):
 
