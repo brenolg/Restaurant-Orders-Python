@@ -37,5 +37,11 @@ class Dish:
             for restriction in ingredient.restrictions
         )
 
+    def has_restriction(self, restriction: str) -> bool:
+        for ingredient in self.recipe.keys():
+            if restriction in ingredient.restrictions:
+                return True
+        return False
+
     def get_ingredients(self):
         return set(self.recipe.keys())
