@@ -30,7 +30,8 @@ class MenuBuilder:
         menu = []
 
         for dish in self.menu_data.dishes:
-            if not dish.has_restriction(restriction):
+            if (restriction is None or
+               restriction not in dish.get_restrictions()):
 
                 dish_info = {
                     "dish_name": dish.name,
@@ -46,4 +47,5 @@ class MenuBuilder:
 
                 if has_ingredients:
                     menu.append(dish_info)
+        print('MENU', menu)
         return menu
